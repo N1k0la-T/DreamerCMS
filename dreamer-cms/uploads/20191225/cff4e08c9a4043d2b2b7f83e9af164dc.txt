@@ -1,0 +1,12 @@
+memcached -d -m 512 -u root -p 11211 -c 1024 -P /var/lib/memcached.11211pid
+ps -ef|grep memcached
+
+firewall-cmd --zone=public --add-port=80/tcp --permanent   （--permanent永久生效，没有此参数重启后失效）
+firewall-cmd --reload
+
+
+JAVA_OPTS="-server -Xms4096m -Xmx8192m -XX:PermSize=4096M -XX:MaxPermSize=8192m"
+
+
+
+rsync test.jar  web@192.168.10.44:test
